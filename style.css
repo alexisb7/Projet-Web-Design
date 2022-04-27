@@ -1,0 +1,131 @@
+/* Fichier de styles pour le jeu de Ball-trap */ 
+
+body {
+  text-align : center;
+  font-family: "Arial";
+}
+
+#en-tete {
+  background-color: rgba(161, 192, 127, 0.952);
+  height: 100px;
+  padding-top: 17px;
+}
+
+.img-epf {
+  position: absolute;
+  left:8px;
+  top:8px;
+}
+
+.img-homer {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+#consigne {
+  margin-top: 18px;
+  margin-bottom: 15px;
+}
+
+#terrain {
+  background-image: url("images/maison.png");
+  background-repeat: no-repeat;
+  left: 100px;
+  margin-bottom : 20px;
+  margin-top : 10px;
+  box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.2);
+  position : absolute;
+}
+
+
+#control {
+  position: absolute;
+  left:50px;
+  top: 600px;
+  width: 300px;
+  background-color : rgba(161, 192, 127, 0.952);
+  padding : 5px 0px;
+}
+
+#game {
+  position: absolute;
+  top: 640px;
+  left: 360px;
+  width: 400px;
+  background-color : rgba(161, 192, 127, 0.952);
+  padding : 5px 0px;
+}
+
+#start {
+  margin-top: 5px;
+  width: 100px;
+  height: 30px;
+}
+
+.target {
+  width:40px;
+  height: 40px;
+  position : absolute;
+  border-radius : 30px;
+  box-shadow : 0px 0px 6px 2px rgb(0,0,0,0.3);
+  transition-property : background-color, opacity;
+  transition-duration : 0.2s, 0.8s;  
+  transition-timing-function : ease-in, ease-out;
+  transition-delay : 0s, 0.2s;
+  opacity : 1;
+}
+
+#control div {
+  margin :8px 0px;
+}
+
+#remaining, #nbtargets {
+  display : inline-block;  
+  padding : 0px 5px;
+}
+#remaining {
+  text-align : center;  
+  margin-right :20px;
+  width : 30px;
+  background-color: white;
+}
+#nbtargets{
+  text-align: center;
+  width : 50px;
+  margin-right : 5px;
+}
+#chrono {
+  border : solid thin black;
+  padding : 1px 5px;
+  background-color : white;  
+}
+#chrono span {
+  padding : 0px 1px;
+  font-family : sans-serif;
+}
+
+#scoreboard {
+  position: relative;
+  margin-left: 800px;
+  padding-top: 10px;
+}
+
+#scores {
+  position: relative;
+  margin-right: 160px;
+  background-color: rgba(161, 192, 127, 0.952);
+  padding-top: 7px;
+  height: 25px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#pied {
+  background-color: rgba(161, 192, 127, 0.952);
+  font-style: italic;
+  position: absolute;
+  bottom: -15px;
+  width: 1409px;
+}
+
