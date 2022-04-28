@@ -84,22 +84,26 @@ body {
   display : inline-block;  
   padding : 0px 5px;
 }
+
 #remaining {
   text-align : center;  
   margin-right :20px;
   width : 30px;
   background-color: white;
 }
+
 #nbtargets{
   text-align: center;
   width : 50px;
   margin-right : 5px;
 }
+
 #chrono {
   border : solid thin black;
   padding : 1px 5px;
   background-color : white;  
 }
+
 #chrono span {
   padding : 0px 1px;
   font-family : sans-serif;
