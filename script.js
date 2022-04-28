@@ -169,11 +169,12 @@ function saveGame() {
         document.getElementById("scoreboard").removeChild(document.getElementById("scoretable"));
         printScores();
     }
-    else{
+    else {
         localStorage.setItem("list_names", name);
-        localStorage.setItem("list_scores", score);
+        localStorage.setItem("list_scores", Math.round(score * 1000) / 1000);
         localStorage.setItem("list_targets", targets);
-        localStorage.setItem("list_times", (time * 0.1));
+        localStorage.setItem("list_times", Math.round((time * 0.1) * 10) / 10);
+        document.getElementById("scoreboard").removeChild(document.getElementById("scoretable"));
         printScores();
     }
 }
@@ -226,33 +227,92 @@ function printScores() {
             game.sortGames(tabGames)
         }
         var bool = false;
-        for(var i = 0; i < tabGames.length ; i++){
-            var index = i+1;
-            row = tbody.insertRow();
-            cell = row.insertCell();
-            cell.appendChild(document.createTextNode(index));
-            cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
-            cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
-            cell = row.insertCell();
-            cell.appendChild(document.createTextNode(tabGames[i].name));
-            cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
-            cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
-            cell = row.insertCell();
-            cell.appendChild(document.createTextNode(tabGames[i].score));
-            cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
-            cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
-            cell = row.insertCell();
-            cell.appendChild(document.createTextNode(tabGames[i].targets));
-            cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
-            cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
-            cell = row.insertCell();
-            cell.appendChild(document.createTextNode(tabGames[i].time));
-            cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
-            if(tabGames[i].name == name && tabGames[i].score == score && !bool){
-                row.style.backgroundColor = "#80e972";
-                bool = true;
+        if(tabGames.length > 20){
+            for(i = 0; i < 19 ; i++){
+                var index = i+1;
+                row = tbody.insertRow();
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(index));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].name));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].score));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].targets));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].time));
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                if(tabGames[i].name == name && tabGames[i].score == score && !bool){
+                    row.style.backgroundColor = "#80e972";
+                    bool = true;
+                }
+            }
+            if(bool == false) {
+                for(i = 19 ; i < tabGames.length ; i++){
+                    if(tabGames[i].name == name && tabGames[i].score == score){
+                        row = tbody.insertRow();
+                        cell = row.insertCell();
+                        cell.appendChild(document.createTextNode(i+1));
+                        cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                        cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                        cell = row.insertCell();
+                        cell.appendChild(document.createTextNode(tabGames[i].name));
+                        cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                        cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                        cell = row.insertCell();
+                        cell.appendChild(document.createTextNode(tabGames[i].score));
+                        cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                        cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                        cell = row.insertCell();
+                        cell.appendChild(document.createTextNode(tabGames[i].targets));
+                        cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                        cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                        cell = row.insertCell();
+                        cell.appendChild(document.createTextNode(tabGames[i].time));
+                        cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                        row.style.backgroundColor = "#80e972";
+                        bool = true;
+                    }
+                }
             }
         }
+        else {
+            for(var i = 0; i < tabGames.length ; i++){
+                var index = i+1;
+                row = tbody.insertRow();
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(index));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].name));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].score));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].targets));
+                cell.style.borderRight = "solid rgba(92, 114, 69, 0.952)";
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                cell = row.insertCell();
+                cell.appendChild(document.createTextNode(tabGames[i].time));
+                cell.style.borderBottom = "solid rgba(92, 114, 69, 0.952)";
+                if(tabGames[i].name == name && tabGames[i].score == score && !bool){
+                    row.style.backgroundColor = "#80e972";
+                    bool = true;
+                }
+            }
+        }  
         scoreboard.appendChild(table);
     }
     else {
