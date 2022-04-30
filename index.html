@@ -1,5 +1,6 @@
 <!-- Projet Web Design 4A MIN 2022 Alexis BERIOT -->
 <!-- Page web du jeu de Ball-Trap -->
+
 <!DOCTYPE html> 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
@@ -13,16 +14,20 @@
 </head>
 
 <body>
+	<!-- En-tête  -->
 	<div id="en-tete">
 		<img class="img-epf" src="./images/logo-epf.png"/>
 		<h1>Bienvenue sur ce ball-trap spécial Simpson!</h1>
 		<img class="img-homer" src="./images/homer-chasse.png"/>
 	</div>
+	<!-- Consigne -->
 	<div id="consigne">
 		Soyez le plus rapide à détruire toutes les cibles présentes sur le terrain de chasse !
 	</div>
+	<!-- Terrain -->
 	<div id="terrain" style="height : 400px; width: 604px;">
 	</div>
+	<!-- Saisie utilisateur -->
 	<div id="control">
 		<div>Nom : 
 			<input id="nom" required/>
@@ -32,18 +37,21 @@
 			<button id="start" onclick="startGame()">Démarrer</button>
 		</div>
 	</div>
+	<!-- Paramètres de la partie -->
 	<div id="game">Cibles restantes : 
 		<span id="remaining">0</span>
-		<!-- le chonomètre -->
+		<!-- Chronomètre -->
 		Temps : <span id="chrono"> 
 			<span id="minutes">0</span>'<span id="seconds">00</span>"<span id="tenth">0</span>
 		</span>
 	</div>
+	<!-- Tableau des meilleurs scores -->
 	<div id="scoreboard">
 		<div id="scores">
 			ALL TIMES SCORES
 		</div>
 	</div>
+	<!-- Pied -->
 	<div id="pied">
 		Projet Web Design 4A Majeure Ingénierie et Numérique - Alexis BERIOT MIN1
 	</div>
